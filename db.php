@@ -8,7 +8,7 @@
 <body>
     <?php 
     try{
-        $db=new PDO('mysql:host=localhost;chartest=utf8;dbname=record','root','');
+        $db=new PDO('mysql:host=localhost;charset=utf8;dbname=record','admin','dosana');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $requete =$db->query("SELECT * FROM artist");
         $tableau = $requete->fetchALL(PDO::FETCH_OBJ);
