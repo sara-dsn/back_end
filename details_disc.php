@@ -19,22 +19,23 @@
         //     echo "ça existe";
 
        // Exécution d'une requête SQL
-       $requete = $db->prepare("SELECT * FROM disc where disc_id=30");
+       $requete = $db->prepare("SELECT * FROM disc where disc_id=7");
        $requete->execute();
        $disc = $requete->fetch(PDO::FETCH_OBJ);
        
         // }
       
     
-
+if ($disc){ 
     ?>
 <br>
-<?php if (isset($disc)): ?>
+
         Disc N° <?= $disc->disc_id ?> <br>
     Disc name <?= $disc->disc_title ?><br>
     Disc year <?= $disc->disc_year ?>
-    <?php else : ?>
-        <p> Faux</p>
-        <?php endif; ?>
+<?php } 
+else{
+    echo "<br>  ça n'existe pas ";
+}?>
 </body>
 </html>
