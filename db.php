@@ -8,7 +8,7 @@
 <body>
     <?php 
     try{
-        // Connexion à la base de données
+    // Connexion à la base de données
         $db=new PDO('mysql:host=localhost;charset=utf8;dbname=record','admin','dosana');
         // configurer le mode erreur PDO pour générer des exceptions :
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
