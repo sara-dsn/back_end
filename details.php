@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test pdo</title>
-</head>
-<body>
+<?php include 'header.php'; ?>
     <?php 
    
         // Connexion à la base de données
@@ -37,5 +30,4 @@ if ($disc){
 else{
     echo "<br>  ça n'existe pas ";
 }?>
-</body>
-</html>
+  <?php include 'footer.php'; ?>

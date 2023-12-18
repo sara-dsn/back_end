@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test 2 pdo</title>
-</head>
-<body>
-    <?php 
-   if(!isset($_GET['page'])| empty($_GET['page'])|($_GET['page'])=='index'){
-    include('index.php');
+
+    <?php include 'header.php'; ?>
+     <?php
+
+   if(!isset($_GET['page'])|| empty($_GET['page'])||$_GET['page']=='index'){
+    include_once('index.php');
    } else if (($_GET['page'])=='details'){
     include('details.php');
    }else if(($_GET['page'])=='add_form'){
@@ -17,12 +12,6 @@
     include('update_form.php');
    } else if(($_GET['page']=='delete_form')){
     include('delet_form.php');
-   } else if(($_POST['page'])=='add_script'){
-    include('add_script.php');
-   } else if(($_POST['page'])=='update_script'){
-    include('update_script.php');
-   } else if(($_POST['page'])=='delete_script'){
-    include('delete_script.php');
    };
 
    
@@ -52,15 +41,5 @@
    
    
     ?>
-<?php if (!empty($tableau)): ?>
-    <?php foreach ($tableau as $artist): ?>
-        <div>
-            <?= $artist->artist_name ?>
-        </div>
-    <?php endforeach; ?>
-<?php else: ?>
-    <p>Aucun résultat trouvé.</p>
-<?php endif; ?>
 
-</body>
-</html>
+<?php include 'footer.php' ?>
