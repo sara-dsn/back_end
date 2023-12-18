@@ -12,22 +12,34 @@
         //     echo "ça existe";
 
        // Exécution d'une requête SQL
-       $requete = $db->prepare("SELECT * FROM disc where disc_id=7");
+       $requete = $db->prepare("SELECT * FROM disc");
        $requete->execute();
-       $disc = $requete->fetch(PDO::FETCH_OBJ);
+       $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
+       
        
         // }
       
-    
-if ($disc){ 
     ?>
-<br>
+    <div class=" font-weight-bold"><h1>Liste des disques</h1></div>
+    <div class="row"> 
+    <?php
+if ($tableau){ 
+    foreach ($tableau as $disc){ 
+    ?>
+<div class="card col-2 mr-4 ml-4 mb-4" style="width: 18rem;">
+  <img class="card-img-top" src="img/<?=$disc->disc_picture?>" alt="vinyle">
+  <div class="card-body">
+    <h5 class="card-title font-weight-bold"><?= $disc->disc_title ?></h5>
+    <p class="card-text">Label : <?= $disc->disc_label?> <br>
+    Year :<?= $disc->disc_year?> <br>
+    Genre : <?=$disc->disc_genre?></p>
+    <a href="#" class="btn btn-primary">Détails</a>
+  </div>
+</div>
 
-        Disc N° <?= $disc->disc_id ?> <br>
-    Disc name <?= $disc->disc_title ?><br>
-    Disc year <?= $disc->disc_year ?>
-<?php } 
+<?php };} 
 else{
-    echo "<br>  ça n'existe pas ";
-}?>
-  <?php include 'footer.php'; ?>
+    echo "<br>  La page ne répond pas ";
+};?>
+</div>
+  <?php  include 'footer.php'; ?>
