@@ -7,7 +7,23 @@
 </head>
 <body>
     <?php 
-   
+   if(!isset($_GET['page'])| empty($_GET['page'])|($_GET['page'])=='index'){
+    include('index.php');
+   } else if (($_GET['page'])=='details'){
+    include('details.php');
+   }else if(($_GET['page'])=='add_form'){
+    include('add_form.php');
+   }else if(($_GET['page'])=='update_form'){
+    include('update_form.php');
+   } else if(($_GET['page']=='delete_form')){
+    include('delet_form.php');
+   } else if(($_POST['page'])=='add_script'){
+    include('add_script.php');
+   } else if(($_POST['page'])=='update_script'){
+    include('update_script.php');
+   } else if(($_POST['page'])=='delete_script'){
+    include('delete_script.php');
+   };
 
    
    try {
